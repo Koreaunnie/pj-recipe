@@ -21,43 +21,55 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
-        tr {
-            border-bottom: 1px solid var(--table-border-color);
-        }
-
-        tr:last-child {
-            border-bottom: none;
-        }
-
-        tr:hover {
-            background: var(--table-hover-color);
-        }
-
         #search-input {
             width: 100%;
             background: url("") no-repeat;
             background-position: 10px 10px;
         }
 
-        .col-1 {
+        .category {
+            display: flex;
+        }
+
+        .recipe-list tr {
+            border-bottom: 1px solid var(--table-border-color);
+        }
+
+        .recipe-list tr:last-child {
+            border-bottom: none;
+        }
+
+        .recipe-list tr:hover {
+            background: var(--table-hover-color);
+        }
+
+        .recipe-list tr td {
+            padding: 5px 10px;
+        }
+
+        .recipe-list .col-1 {
             width: 40%;
         }
 
-        .col-2 {
+        .recipe-list .col-2 {
             width: 50%;
         }
 
-        .col-3 {
+        .recipe-list .col-3 {
             width: 10%;
         }
 
-        .description {
+        .recipe-list .name {
+            text-align: left;
+        }
+
+        .recipe-list .description {
             text-align: left;
             color: var(--description);
             font-size: var(--small-font-size);
         }
 
-        .created {
+        .recipe-list .created {
             font-size: var(--small-font-size);
         }
     </style>
@@ -80,30 +92,31 @@
     </button>
 </div>
 
+<div class="search-wrap">
+    <ul class="category">
+        <li>
+            <label for="select-category"></label>
+            <select name="categoryType" id="select-category">
+                <option value="all" selected>전체</option>
+            </select>
+        </li>
+
+        <li>
+            <label for="input-search"></label>
+            <input type="search" id="input-search" placeholder="검색">
+        </li>
+    </ul>
+</div>
+
 <table>
-    <thead>
-    <tr class="category>
-            <label for=" category-select
-    "></label>
-    <select name="category" id="category-select">
-        <option value="all" selected>전체</option>
-    </select>
-    </tr>
-
-    <tr>
-        <label for="search-input"></label>
-        <input type="search" id="search-input">
-    </tr>
-    </thead>
-
-    <tbody>
+    <tbody class="recipe-list">
     <c:forEach items="${recipeList}" var="recipe">
         <tr>
-            <th class="col-1 name">
+            <td class="col-1 name">
                 <a href="/recipe/view?id=${recipe.id}">
                         ${recipe.name}
                 </a>
-            </th>
+            </td>
 
             <td class="col-2 description">
                     ${recipe.description}
