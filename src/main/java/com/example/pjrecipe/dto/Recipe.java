@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 @Data
 public class Recipe {
     private Integer id;
-    private String name;
+    private String title;
     private String description;
     private LocalDateTime created;
 }

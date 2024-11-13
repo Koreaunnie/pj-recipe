@@ -13,8 +13,8 @@ public interface RecipeMapper {
 
     @Insert("""
             INSERT INTO Recipes
-            (name, description)
-            VALUES (#{name}, #{description})
+            (title, description)
+            VALUES (#{title}, #{description})
             """)
     @Options(useGeneratedKeys = true, keyProperty = "id")
     int insert(Recipe recipe);

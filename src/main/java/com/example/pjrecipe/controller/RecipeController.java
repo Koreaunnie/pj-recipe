@@ -45,7 +45,6 @@ public class RecipeController {
 
     @GetMapping("view")
     public void viewRecipe(Integer id, Model model) {
-        Recipe recipe = service.info(id);
-        model.addAttribute("recipe", recipe);
+        model.addAttribute("recipe", service.info(id));
     }
 }

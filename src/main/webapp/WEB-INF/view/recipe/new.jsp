@@ -72,7 +72,7 @@
 
     <fieldset class="title">
         <label for="nameInput"></label>
-        <input type="text" id="nameInput" name="name" placeholder="요리명">
+        <input type="text" id="nameInput" name="title" placeholder="요리명" required>
 
         <label for="descriptionInput"></label>
         <input type="text" id="descriptionInput" name="description" placeholder="설명">

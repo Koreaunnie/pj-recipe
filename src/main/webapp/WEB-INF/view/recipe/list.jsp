@@ -33,6 +33,7 @@
 
         .recipe-list tr {
             border-bottom: 1px solid var(--table-border-color);
+            cursor: pointer;
         }
 
         .recipe-list tr:last-child {
@@ -59,7 +60,7 @@
             width: 10%;
         }
 
-        .recipe-list .name {
+        .recipe-list .title {
             text-align: left;
         }
 
@@ -111,11 +112,9 @@
 <table>
     <tbody class="recipe-list">
     <c:forEach items="${recipeList}" var="recipe">
-        <tr>
-            <td class="col-1 name">
-                <a href="/recipe/view?id=${recipe.id}">
-                        ${recipe.name}
-                </a>
+        <tr onclick="location.href='/recipe/view?id=${recipe.id}'">
+            <td class="col-1 title">
+                    ${recipe.title}
             </td>
 
             <td class="col-2 description">
